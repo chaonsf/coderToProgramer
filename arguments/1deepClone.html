@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    步鄹：1、判断是不是原始值  =>遍历   typeof
+    2、判断是数组还是对象 =>instanceof    toString  contructor
+    3、建立相应的数组和对象
+    4、递归
+</body>
+<script>
+        function deepClone(origin,target){
+            let target=target || {},
+            toStr=Object.prototype.toString,
+            arrStr="[object Array]";
+            for(let prop in  origin){
+                if(origin.hasOwnProperty(prop)){
+                     if(origin[prop]!=="null"&& typeof origin[prop]=='object'){
+                            if(toStr.call(origin[prop])==arrStr){
+                                //代表是数组
+                                target[prop]=[]
+                            }else{
+                                //对象
+                                target[prop]={}
+                            }
+                          deepClone(origin[prop],target[prop])  
+                     }else{
+                         //说明是原始值
+                         target[prop]=origin[prop]
+                     }
+                }
+            }
+            return target
+        }
+</script>
+</html>

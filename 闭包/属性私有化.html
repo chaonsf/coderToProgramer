@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+      function People(name,wife){
+          var prepareWife="linda";
+          this.name=name;
+          this.wife=wife;
+          this.divorce=function(){
+              this.wife=prepareWife
+          }
+          this.changePrepareWife=function(target){
+              prepareWife=target
+          }
+          this.sayPreparewife=function(){
+              console.log(prepareWife)
+          }
+      }
+      var tom=new People("tom","grace");
+      tom.divorce()
+     console.log(tom.wife);
+     console.log(People.prepareWife) //这个变量只有他自己能看到，这就是私有属性，他只有通过自己设置方法才能暴露出来
+</script>
+</html>

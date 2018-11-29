@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    原型链上的prototype有个toString
     document.write人为的调用了toString方法。
 </body>
 <script>
+     //Object.prototype.toString
+     //Number.prototype.toString
+     //Array.prototype.toString
+     //Boolen.prototype.toString
+     //String.prototype.toString
      let obj=Object.create(null);
      obj.toString=function(){
          return "老邓身体好"

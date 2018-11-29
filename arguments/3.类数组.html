@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    类数组：属性要为索引，必须有length，最好加上push
+    
+</body>
+<script>
+      var obj={
+          "0":"a",
+          "1":"b",
+          "2":"c",
+          "length":3,
+          "push":Array.prototype.push
+      }
+     obj.push(4);
+     console.log(obj)
+   /*  原理
+     Array.prototype.push=function(target){
+         this[this.length]=target;
+         this.length++
+     } */
+</script>
+</html>
