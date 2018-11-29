@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>给每个li加事件,输出他们的下标</title>
+    <style>
+         *{
+             margin: 0;
+             padding: 0
+         }
+         ul,li{
+             list-style: none;
+         }
+         li:nth-child(2n){
+             background: red
+         }
+         li:nth-child(2n+1){
+             background: gray
+         }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+    </ul>
+</body>
+<script>
+     function test(){
+        var li=document.getElementsByTagName("li");
+       for(let i=0;i<li.length;i++){
+          (function(j){
+              li[j].onclick=function(){
+                   console.log(j)
+              }
+          }(i))
+      }
+     }
+     test()
+</script>
+</html>

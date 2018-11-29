@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    1。传统形式=》原型链  
+        过多的继承了没用的属性
+    2.借用构造函数
+       不能继承借用构造函数的模型
+       每次构造函数要多走一个函数
+    3.公有原型
+    4.圣杯模式
+
+</body>
+<script>
+      //公有原型
+      Father.prototype.lastName="deng";
+      function Father(){
+
+      }
+      function Son(){
+
+      }
+      Son.prototype=Father.prototype;
+      var son=new Son();
+      var father=new Father();
+      console.log(son.lastName)
+      console.log(father.lastName)
+
+      //圣杯模式，将28行以后换成，这样Son给原型上加东西不会影响Father
+      function f(){
+
+      }
+      F.prototype=Father.prototype;
+      Son.prototype=new F();
+</script>
+</html>

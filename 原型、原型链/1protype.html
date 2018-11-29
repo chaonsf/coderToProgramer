@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    体会下面三种之间的区别
+    第一种方法改变了Person.prototype;但没改变__proto__.第一种方法的注释以及最后那个obj的例子。
+   
+
+    原型：
+    1、定义：原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过构造函数产生的对象，可以继承原型的属性和方法。原型也是对象。
+    2利用原型的特点和概念，可以提取公有属性。
+    3、对象如何查看原型=》隐式属性__proto__
+    4、对象如何查看对象的构造函数=》constructor
+</body>
+<script>
+      Person.prototype.name='sunny';
+      function Person(){
+         //var this={__proto__:Peoson.prototype}
+      }
+      var person1=new Person();
+      Person.prototype={
+          name:"tonny"
+      }
+      console.log("person1:",person1.name)
+      
+
+      People.prototype.name='sunny';
+      function People(){
+
+      }
+      People.prototype={
+          name:"tonny"
+      }
+      var  people1=new  People();
+      console.log("people:", people1.name)
+
+
+      Heeny.prototype.name='sunny';
+      function Heeny(){
+
+      }
+      var heeny1=new Heeny();
+      Person.prototype.name="tonny"
+      console.log("henny1:",heeny1.name)
+
+      var obj={name:"aa"};
+      let obj1=obj;
+      obj={name:"bb"};
+</script>
+</html>

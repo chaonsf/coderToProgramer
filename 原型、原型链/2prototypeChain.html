@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链</title>
+</head>
+<body>
+    
+</body>
+<script>
+     Grand.prototype.lastName="deng";
+     function Grand(){
+
+     }
+     var grand=new Grand();
+     Father.prototype=grand;
+     function Father(){
+          this.name="sunny"
+     }
+     var father=new Father();
+     Son.prototype=father;
+     function Son(){
+         this.habbit="smoke";
+     }
+     var son=new Son();
+     console.log(son.habbit);
+     console.log(son.name);
+     console.log(son.lastName)
+</script>
+</html>

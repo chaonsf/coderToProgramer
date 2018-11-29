@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可以做缓存</title>
+</head>
+<body>
+    
+</body>
+<script>
+     function test(){
+         var food="apple";
+         var obj={
+             eatfood(){
+                 if(food){
+                     console.log("i am eat "+food);
+                     food=""
+                 }else{
+                     console.log("i am nothing to eat!")
+                 }
+             },
+             pushfood(myfood){
+                 food=myfood
+             }
+         }
+         return obj
+     }
+     var person=test();
+     person.eatfood();
+     person.eatfood();
+     person.pushfood("banner");
+     person.eatfood();
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+  <script>
+       function Person(name,age){
+        this.name=name;
+        this.age=age
+  }
+    var person=new Person('deng',100)
+    var obj={}
+     Person.call(obj,'cheng',99)   //这就改变了Person里的this指向，this现在指向obj.这样就可以借别人的方法实现自己的功能
+     console.log(obj)
+
+//看下面例子
+     function People(name,age){
+         this.name=name;
+         this.age=age;
+     }
+     function Student(name,age,sex){
+         People.call(this,name,age)
+         this.sex=sex;
+     }
+     var student=new Student("sunny",18,'male')
+     console.log(student)
+  </script>
+</html>

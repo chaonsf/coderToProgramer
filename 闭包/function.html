@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    把一个数组里面装是个函数,每个函数的结果不一样
+</body>
+<script>
+      function test(){
+          var arr=[];
+          for(var i=0;i<10;i++){
+              (function(j){
+                  arr[j]=function(){
+                       console.log(j)
+                  }
+              }(i))
+          }
+          return arr;
+      }
+       let arr=test()
+      for(let j=0;j<10;j++){
+           arr[j]()
+      }
+</script>
+</html>
