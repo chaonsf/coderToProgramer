@@ -7,7 +7,8 @@
     <title>原型链</title>
 </head>
 <body>
-    
+    1、绝大多数对象的最终都会继承自Object.ptototype
+    因为还有种方法Object.create(原型)这种方法。=>Object.create(null) 这个对象就没有原型。
 </body>
 <script>
      Grand.prototype.lastName="deng";
@@ -28,5 +29,8 @@
      console.log(son.habbit);
      console.log(son.name);
      console.log(son.lastName)
+
+
+     
 </script>
 </html>

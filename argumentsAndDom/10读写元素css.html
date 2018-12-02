@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+      div{
+          width:100px;
+          height: 100px;
+          background: gray
+      }
+      div::after{
+          width: 10px;
+          height: 10px;
+          background: red;
+          content: "";
+          display: inline-block
+      }
+</style>
+<body>
+    <div></div>
+</body>
+<script>
+   /*   dom.style:可读写行间样式，没用兼容性问题。碰到float这样的保留字属性，前面加css    eg:cssFloat
+     复合属性必须拆解，组合单词变成小驼峰式写法。
+     写入的值必须是字符串形式 */
+     //window.getComputedStyle(ele,null)  计算样式，只读。返回的样式的值都是绝对值，没用相对单位。（把em等单位换成px）ie8及ie8以下不兼容（这个不只是ele行间的样式）
+     //ie独特的方法：ele.currentStyle
+
+     function getStyle(elem,prop){
+         //elem代表dom元素，prop代表想获得的属性
+          if(window.getComputedStyle){
+              return window.getComputedStyle(elem,null)[prop]
+          }else{
+              return elem.currentStyle[prop]
+          }
+     }
+     let div=document.getElementsByTagName('div')[0];
+     let b=window.getComputedStyle(div,"after");  //这个是获取伪元素样式的方法，第二个参数写伪元素名称。不是伪元素的话第二个参数为null
+     console.log(b.width)
+</script>
+</html>

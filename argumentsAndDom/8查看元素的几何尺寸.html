@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="width:100px;height:200px;background:green;padding:100px"></div>
+</body>
+  <script>
+        let div=document.getElementsByTagName("div")[0];
+        //方法一:这是静态方法
+        let v=div.getBoundingClientRect();
+        console.log(v)
+        //方法二
+        let w=div.offsetWidth;
+        let h=div.offsetHeight;
+        let l=div.offsetLeft;//这个元素距离最近的有定位的父级的距离
+        let t=div.offsetTop
+        console.log(w,h,l,t)
+        let parent=div.offsetParent  //求此元素最近的有定位的父级
+        console.log(parent)
+  </script>
+</html>
