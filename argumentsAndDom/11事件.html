@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*   1、obj.onxxx=function(ev){} 兼容性很好，但一个元素只能绑定一个事件  解除绑定方法：obj.onxxx=null
+      2、obj.addEventListener(type,fn,false)  ie9以下不兼容，可以绑定多个处理程序。 解除绑定方法：obj.removeEventListener(type,fn,false)
+      3、obj.attachEvent('on'+type,fn)  ie独有 解除绑定 obj.detach('on'+type,fn)*/
+      //绑定事件函数的封装
+      function addEvent(elem,type,handle){
+           if(elem.addEventListener){
+             elem.addEventListener(type,handle,false)
+           }else if(elem.attachEvent){
+               elem.attachEvent("on"+type,function(){
+                   handle.call(elem) //因为attachEvent中的this指的是window,这样写是为了让其指向elem自身
+               })
+           }else{
+               elem["on"+type]=handle
+           }
+      }
+
+</script>
+</html>

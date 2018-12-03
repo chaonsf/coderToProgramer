@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+</body>
+<script>
+    /*  1、return false 以对象的属性的方式注册的事件才生效。
+     2、event.preventDefault()   ie9以下不兼容
+     3、event.returnValue=false;  兼任ie */
+     function cancelHandle(event){
+         if(event.preventDefault){
+             event.preventDefault()
+         }else{
+             event.returnValue=false
+         }
+     }
+    
+    /* 事件源对象（可以看出是谁触发的这个事件）
+    1、event.target  火狐上只有这个
+    2、event.srcElement Ie上只有这个
+    谷歌上上面两个都有
+    */
+    //打印点击的li的值，事件委托，利用了事件源对象
+    let ul=document.getElementsByTagName("ul")[0];
+    ul.onclick=function(e){
+        var event=e||window.event;
+        var target=event.target||event.srcElement
+        console.log(target.innerText)
+    }
+</script>
+</html>
