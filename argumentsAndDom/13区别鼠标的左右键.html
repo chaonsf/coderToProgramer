@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    用button来区分鼠标左右键 (mousedown mouseUp事件都可以区分)
+</body>
+<script>
+      document.onmousedown=function(e){
+           console.log(e)
+        if(e.button==2){
+            console.log("right")
+        }else if(e.button==0){
+            console.log("left")
+        }
+      }
+</script>
+</html>

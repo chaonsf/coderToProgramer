@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <div>
+        keydown>keypress>keyup
+        keydown:可以响应任意键盘按键，keypress只可响应字符类键盘按键。keypress返回ASCII编码，可以转换成相应的字符（可以通过e.charcode知道按的是哪个字符按键）
+   </div> 
+</body>
+<script>
+      document.onkeypress=function(e){
+          console.log(String.fromCharCode(e.charCode))
+      }
+</script>
+</html>
