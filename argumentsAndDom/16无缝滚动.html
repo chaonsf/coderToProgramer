@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+ <style>
+      .box{
+      width:800px;
+      background:#fff;
+      border: 1px #ccc dotted;
+      height: 150px;
+      margin:  50px auto;
+      overflow: hidden;
+    }
+    .inbox{
+        width:800%;
+        float: left;
+    }
+    .box1{
+        float: left;
+    }
+    .box2{
+        float: left;
+    }
+    .box .inbox a {
+        margin-right: 30px;
+        display: inline-block;
+    }
+ </style>
+<body>
+    <div class="box">
+        <div class="inbox">
+            <div class="box1">
+                    <a><img src="http://placehold.it/100x150"></a>
+                    <a><img src="http://placehold.it/100x150"></a>
+                    <a><img src="http://placehold.it/100x150"></a>
+                    <a><img src="http://placehold.it/100x150"></a>
+                    <a><img src="http://placehold.it/100x150"></a>
+                    <a><img src="http://placehold.it/100x150"></a>
+                    <a><img src="http://placehold.it/100x150"></a>
+                    <a><img src="http://placehold.it/100x150"></a>
+            </div>
+            <div class="box2"></div>
+        </div>
+    </div>
+</body>
+<script>
+      let speed=10;
+      let box=document.getElementsByClassName("box")[0];
+      let box1=document.getElementsByClassName('box1')[0];
+      let box2=document.getElementsByClassName("box2")[0];
+      box2.innerHTML=box1.innerHTML;
+      function marquee(){
+          if(box2.offsetWidth-box.scrollLeft<=0){
+              box.scrollLeft-=box2.offsetWidth;
+          }else{
+              box.scrollLeft++
+          }
+      }
+      var myar=window.setInterval(marquee,speed);
+      box.onmouseover=function(){
+          window.clearInterval(myar)
+      }
+      box.onmouseout=function(){
+        myar=window.setInterval(marquee,speed);
+      }
+</script>
+</html>
