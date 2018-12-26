@@ -36,7 +36,7 @@
     2、event.srcElement Ie上只有这个
     谷歌上上面两个都有
     */
-    //打印点击的li的值，事件委托，利用了事件源对象
+    //打印点击的li的值，事件委托，利用了事件冒泡 事件源对象。优点：性能，不需要循环遍历一个个绑定事件2.灵活 ，当有新的子元素时不需要重新绑定事件
     let ul=document.getElementsByTagName("ul")[0];
     ul.onclick=function(e){
         var event=e||window.event;
