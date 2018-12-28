@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+       let arr=[1,2,45];
+       arr.b="q"
+       /* forEach方法:不支持return,声明式，不关心如何实现*/
+       arr.forEach((item,index)=>{
+            console.log("item:",item)
+       })
+       /* for in，key会变成字符串类型,数组的私有属性也可以打印出来 */
+       for(let key in arr){
+           console.log(typeof key);
+           console.log("key:",key)
+       }
+       /* for of 方法，支持return ,不能便利出私有属性*/
+       for(let value of arr){
+           console.log("value:",value)
+       }
+
+       /* map  映射  将原有的数组映射成一个新数组。不改变原数组，回调函数返回什么这一项就是什么 */
+       let arr1=arr.map((item)=>{
+           return `<li>${item}</li>`
+       });
+       console.log("map:",arr1.join(''))
+       /* includes  返回boolen，数组中是否包含某一项 */
+      console.log(arr.includes(5))
+      /* find 返回找到的那一项，找到后就不往下找 ,找不到返回undefine*/ 
+      let result=arr.find((item,index)=>{
+          return item.toString().indexOf(5)>-1
+      })
+      console.log("find:",result)
+      /* reduce 收敛，有4个参数 ，返回的是叠加后的结果,最后一个参数代表原数组,
+      循环第一次时prev代表第一项，next代表第二项，循环第二次时，prev代表上一次的返回值，next代表第三项，以此类推，没有返回值prev为undefined*/
+      let arr2=arr.reduce((prev,next,index,item)=>{
+          console.log(prev,next)
+             return prev+next;
+      }) 
+      console.log("====================") 
+      let arr3=arr.reduce((prev,next,index,item)=>{
+           console.log(prev,next)
+           return prev+next
+      },20) //这最后一个参数代表默认指定第一次的prev，参数可以加可以不加
+      console.log("reduce:",arr2)
+      console.log("reduce2:",arr3)
+</script>
+</html>
