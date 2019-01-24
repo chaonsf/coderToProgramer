@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>域名   一级域名   二级域名
+        domain只针对一级域名和二级域名
+        a是在http://a.zf1.cn:3000上面
+    </div>
+    <iframe src="http://b.zf1.cn:3000/b.html" onload="load()" id="freame"></iframe>
+</body>
+<script>
+    document.domain="zf1.cn"  //两个页面都写上这句话，告诉是一家的
+      function load(){
+        let freame=document.getElementById(freame);
+        console.log(freame.contentWindow.a)
+      }
+</script>
+</html>
