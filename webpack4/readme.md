@@ -27,3 +27,7 @@
         options:"$”   //传参 也可以在loader后面通过？传参
     }
 }
+
+# 处理图片
++ npm install file-loader url-loader -D
++ npm install html-withimg-loader -D   //处理<img src="..">的

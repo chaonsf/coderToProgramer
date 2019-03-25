@@ -18,6 +18,16 @@ module.exports={
                     {loader:"style-loader"},
                     {loader:"css-loader"}
                 ]
+            },
+            {  //file-loader是解析图片地址，把图片从源位置拷贝到目标位置，并且修改原引用地址
+                test:/|.(png|jpg|svg|bmp)/,
+                use:{
+                  loader:"file-loader",
+                  options:{
+                       //指定拷贝文件的输出目录
+                       outputPath:"./images"
+                  }
+                }
             }
         ]
     },
