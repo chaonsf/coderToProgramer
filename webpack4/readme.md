@@ -31,3 +31,8 @@
 # 处理图片
 + npm install file-loader url-loader -D
 + npm install html-withimg-loader -D   //处理<img src="..">的
+
+# 处理less
++ npm install less less-loader -D
+# 处理sass
+- npm install node-sass sass-loader -D

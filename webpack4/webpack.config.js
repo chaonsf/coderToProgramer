@@ -29,6 +29,12 @@ module.exports={
                        outputPath:"./images"
                   }
                 }
+            },
+            {
+                test:/\.(html|htm)$/,
+                use:{
+                    loader:"html-withimg-loader"  //处理页面中通过src引入的图片
+                }
             }
         ]
     },
