@@ -10,13 +10,26 @@ module.exports={
         path:path.join(__dirname,"dist"),
         filename:"[name].js"
     },
+    reoslve:{
+        extensions:["",".js",".scss",".json"],//引入模块的时候，可以不用写拓展名
+        alias:{  //别名
+            "bs" :"boostrap.css"  //这样的话想引入boostrap就只需要写import “bs"
+        }
+    },
+    watch:true,   //表示监视源文件的变化，当源文件发生改变时，则重新打包
+    watchOptions:{
+        ignored:/node_modules/,
+        poll:1000,//每秒钟询问的次数
+        aggregateTimeout:500
+    },
     module:{
         rules:[
             {
                 test:/\.css$/,
                 use:[
                     {loader:"style-loader"},
-                    {loader:"css-loader"}
+                    {loader:"css-loader"},
+                    {loader:"postcss-loader"}
                 ]
             },
             {  //file-loader是解析图片地址，把图片从源位置拷贝到目标位置，并且修改原引用地址

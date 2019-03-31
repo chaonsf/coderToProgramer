@@ -36,3 +36,19 @@
 + npm install less less-loader -D
 # 处理sass
 - npm install node-sass sass-loader -D
+
+
+## 把css文件单独拉出来保存
++ npm install Extract-test-webpack-plugin@next    //目前4.x貌似不兼容
+
+# 处理css3兼容性前缀问题
++ npm install postcss-loader autoprefixer -D
++ 配置loader 以及写postcss.config.js
+
+
+# 编译es6 es7 以及react需要的包
++ npm install babel-loader babel-core babel-preset-env babel-preset-stage-0 babel-preset-react -D
++ 配置loader
+
+# 压缩css
++ 在loader后面加“？minimize”
