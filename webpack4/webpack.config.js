@@ -10,7 +10,7 @@ module.exports={
         path:path.join(__dirname,"dist"),
         filename:"[name].js"
     },
-    reoslve:{
+    reslove:{
         extensions:["",".js",".scss",".json"],//引入模块的时候，可以不用写拓展名
         alias:{  //别名
             "bs" :"boostrap.css"  //这样的话想引入boostrap就只需要写import “bs"
