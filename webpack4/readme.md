@@ -52,3 +52,10 @@
 
 # 压缩css
 + 在loader后面加“？minimize”
+---
+# webpack优化
++ 当你引入一个模块的时候，要进行解析.当你需要指定除node_modules之外的其他模块的话，用modules    resolve：{modules:[path.resolve(文件夹名)],alias:{},mainFields:[]}
+## dll(dll为后缀的文件成为动态链接库，当需要导入的模块在动态链接库的时候，模块不能再次被打包，而是去动态连接库里去获取dll-plugin)
++ 需要的插件 DllPlugin(用于打包一个个动态连接库) DllReferencePlugin(在配置文件中引入DllPlugin打包好的动态连接库)。 
+* 先单独给他配置一个webpack.config.js(比如：webpack.react.config.js)
+* 然后在package.json里面配置一个命令打包称动态连接库（比如：“build-react”:webpack --config webpack.react.config.js --mode development）
