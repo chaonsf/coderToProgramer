@@ -59,3 +59,23 @@
 + 需要的插件 DllPlugin(用于打包一个个动态连接库) DllReferencePlugin(在配置文件中引入DllPlugin打包好的动态连接库)。 
 * 先单独给他配置一个webpack.config.js(比如：webpack.react.config.js)
 * 然后在package.json里面配置一个命令打包称动态连接库（比如：“build-react”:webpack --config webpack.react.config.js --mode development）
+* 打包好动态链接库之后，接着在webpack。config.js里面引入刚才打包好的动态连接库，在plugins里面new一下
+## HappyPack（能让webpack把任务分解给多个子进程去并发的执行，子进程处理完后再把结果发送给主进程）
+* 需要的插件 happypack
+## parallelUglifyPlugin (把对js的串行压缩变为开启多个子进程并行执行)
+* 需要的插件 -百度
+## 区分环境
+### 3种区分环境文案
++ 通过npm 命令区分（给环境配置不同的命令）
++ 通过环境变量区分（webpack-merge合并坏境变量）
+
+## cdn（内容分发网络，通过把资源部署到世界各地，用户在访问时按照就近原则从离用户最近的服务器获取资源，从而加速资源的获取速度）
++ html文件不缓存，放在自己的服务器上，关闭自己的服务器缓存，静态资源的url变成指向cdn服务器的地址
++ 静态的js、css、图片等资源开启cdn和缓存，并且文件名带上hash值。
++ 为了并行加载不阻塞，把不同的静态资源分配到不同的cdn服务器上
+## 热加载
++ 插件：HotModuleReplacementPlugin 及NameModulesPlugin 这两个插件都不需要单独下载，都市webpack里面的，只需new webpack.插件（）就行
+## 提取公共代码
++ 基础类库，方便长期缓存
++ 页面之间的公用代码
++ 各个页面单独生产文件

@@ -68,6 +68,7 @@ module.exports={
     devServer:{
         contentBase:"./dist",
         host:"localhost",
+        inline:true,
         port:8080,
         compress:true, //服务器返回给浏览器的时候是否启动gzip压缩
     }
